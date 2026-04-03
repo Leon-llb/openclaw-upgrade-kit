@@ -1,5 +1,7 @@
 # OpenClaw Upgrade Kit
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
 Make OpenClaw feel closer to a serious coding agent system, not just a single chat wrapper.
 
 This repo packages the practical parts we extracted from studying Claude Code's engineering patterns and rewrote for OpenClaw:
