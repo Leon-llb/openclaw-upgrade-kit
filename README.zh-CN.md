@@ -2,6 +2,11 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+[![Release](https://img.shields.io/github/v/release/Leon-llb/openclaw-upgrade-kit?display_name=tag)](https://github.com/Leon-llb/openclaw-upgrade-kit/releases)
+[![License](https://img.shields.io/github/license/Leon-llb/openclaw-upgrade-kit)](./LICENSE)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-2026.4.1-0f766e)](./docs/install.md)
+[![Profile](https://img.shields.io/badge/profile-solo--first-2563eb)](./docs/profiles.md)
+
 让 OpenClaw 更接近真正严肃可用的编码智能体系统，而不只是“一个模型 + 一段提示词”的聊天壳。
 
 这个仓库把我们从研究 Claude Code 工程模式里提炼出的高价值机制，重写并适配到了 OpenClaw：

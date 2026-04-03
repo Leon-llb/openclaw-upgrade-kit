@@ -2,6 +2,11 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+[![Release](https://img.shields.io/github/v/release/Leon-llb/openclaw-upgrade-kit?display_name=tag)](https://github.com/Leon-llb/openclaw-upgrade-kit/releases)
+[![License](https://img.shields.io/github/license/Leon-llb/openclaw-upgrade-kit)](./LICENSE)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-2026.4.1-0f766e)](./docs/install.md)
+[![Profile](https://img.shields.io/badge/profile-solo--first-2563eb)](./docs/profiles.md)
+
 Make OpenClaw feel closer to a serious coding agent system, not just a single chat wrapper.
 
 This repo packages the practical parts we extracted from studying Claude Code's engineering patterns and rewrote for OpenClaw:
