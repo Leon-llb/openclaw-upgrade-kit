@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Release](https://img.shields.io/github/v/release/Leon-llb/openclaw-upgrade-kit?display_name=tag)](https://github.com/Leon-llb/openclaw-upgrade-kit/releases)
+[![Version](https://img.shields.io/github/v/tag/Leon-llb/openclaw-upgrade-kit?sort=semver)](https://github.com/Leon-llb/openclaw-upgrade-kit/tags)
 [![License](https://img.shields.io/github/license/Leon-llb/openclaw-upgrade-kit)](./LICENSE)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-2026.4.1-0f766e)](./docs/install.md)
 [![Profile](https://img.shields.io/badge/profile-solo--first-2563eb)](./docs/profiles.md)
