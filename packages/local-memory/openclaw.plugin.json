@@ -1,0 +1,176 @@
+{
+  "id": "local-memory",
+  "name": "Local Memory",
+  "kind": "memory",
+  "version": "3.3.0",
+  "description": "Layered local memory for OpenClaw with project retention, preferences, workflow gates, slash commands, auto-reflection, archive compaction, cost-aware routing, privacy tiers, and dashboard",
+  "author": "Leon",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leon-llb/openclaw-upgrade-kit"
+  },
+  "keywords": [
+    "memory",
+    "openclaw",
+    "project-memory",
+    "preferences",
+    "archive",
+    "dashboard"
+  ],
+  "uiHints": {
+    "serviceUrl": {
+      "label": "服务地址",
+      "help": "Python 记忆服务的 HTTP 地址"
+    },
+    "autoStart": {
+      "label": "自动启动",
+      "help": "OpenClaw 启动时自动启动 Python 服务"
+    },
+    "autoInject": {
+      "label": "策略注入",
+      "help": "agent 启动前自动注入分层记忆"
+    },
+    "autoReflect": {
+      "label": "自动沉淀",
+      "help": "agent 结束后自动沉淀偏好、项目知识和会话摘要"
+    },
+    "autoWorkflowHints": {
+      "label": "工作流闸门提示",
+      "help": "在 before_prompt_build 里按任务类型自动注入去重后的 delegation / advisor / verification gate，并配合 /delegate /advisor /verify"
+    },
+    "injectTopK": {
+      "label": "召回数量",
+      "help": "构建注入上下文时的最大召回条数"
+    },
+    "injectThreshold": {
+      "label": "注入阈值",
+      "help": "低于此分数的记忆不会注入"
+    },
+    "injectStrategy": {
+      "label": "注入策略",
+      "help": "auto/lean/balanced/deep"
+    },
+    "defaultVisibility": {
+      "label": "默认隐私",
+      "help": "private / project / global"
+    },
+    "ttlDays": {
+      "label": "默认 TTL",
+      "help": "会话型记忆默认过期天数"
+    },
+    "autoArchive": {
+      "label": "自动归档",
+      "help": "按周期检查并自动将老旧记忆压缩归档"
+    },
+    "archiveAfterDays": {
+      "label": "归档天数",
+      "help": "距离最近访问超过该天数的记忆会进入归档候选"
+    },
+    "archiveCheckIntervalMinutes": {
+      "label": "归档检查间隔",
+      "help": "自动归档扫描任务的运行间隔（分钟）"
+    },
+    "healthCheckInterval": {
+      "label": "健康检查间隔",
+      "help": "检查 Python 服务健康状态的间隔（毫秒）"
+    },
+    "scriptPath": {
+      "label": "启动脚本",
+      "help": "memory_service.py 的启动脚本路径"
+    },
+    "dbPath": {
+      "label": "数据库路径",
+      "help": "SQLite 数据库存放目录或文件"
+    },
+    "blackboardRoot": {
+      "label": "黑板目录",
+      "help": "workflow artifact 和 handoff 文件的落盘目录"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      },
+      "serviceUrl": {
+        "type": "string",
+        "default": "http://127.0.0.1:37888"
+      },
+      "autoStart": {
+        "type": "boolean",
+        "default": true
+      },
+      "autoInject": {
+        "type": "boolean",
+        "default": true
+      },
+      "autoReflect": {
+        "type": "boolean",
+        "default": true
+      },
+      "autoWorkflowHints": {
+        "type": "boolean",
+        "default": true
+      },
+      "injectTopK": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 24,
+        "default": 8
+      },
+      "injectThreshold": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "default": 0.18
+      },
+      "injectStrategy": {
+        "type": "string",
+        "enum": ["auto", "lean", "balanced", "deep"],
+        "default": "auto"
+      },
+      "defaultVisibility": {
+        "type": "string",
+        "enum": ["private", "project", "global"],
+        "default": "project"
+      },
+      "autoArchive": {
+        "type": "boolean",
+        "default": true
+      },
+      "archiveAfterDays": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 14
+      },
+      "archiveCheckIntervalMinutes": {
+        "type": "integer",
+        "minimum": 5,
+        "default": 360
+      },
+      "healthCheckInterval": {
+        "type": "integer",
+        "minimum": 10000,
+        "default": 60000
+      },
+      "ttlDays": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 180
+      },
+      "scriptPath": {
+        "type": "string"
+      },
+      "dbPath": {
+        "type": "string"
+      },
+      "blackboardRoot": {
+        "type": "string"
+      }
+    }
+  }
+}

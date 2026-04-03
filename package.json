@@ -1,0 +1,47 @@
+{
+  "name": "@leon-llb/openclaw-upgrade",
+  "version": "0.1.0",
+  "description": "Upgrade kit that brings layered memory, workflow gates, and progressive agent profiles to OpenClaw.",
+  "bin": {
+    "openclaw-upgrade": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "packages/local-memory",
+    "skills",
+    "templates",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run build:cli && npm run build:local-memory",
+    "build:cli": "rm -rf dist && npx -y -p typescript@5.9.3 tsc -p tsconfig.json",
+    "build:local-memory": "npm --prefix packages/local-memory run build",
+    "typecheck": "npx -y -p typescript@5.9.3 tsc --noEmit -p tsconfig.json && npm --prefix packages/local-memory run typecheck",
+    "test": "npm run build && node --test tests/*.test.cjs && npm --prefix packages/local-memory run test",
+    "test:installer": "npm run build:cli && node --test tests/*.test.cjs"
+  },
+  "keywords": [
+    "openclaw",
+    "agent",
+    "memory",
+    "workflow",
+    "installer",
+    "multi-agent"
+  ],
+  "author": "Leon",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leon-llb/openclaw-upgrade-kit.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.9.3"
+  }
+}

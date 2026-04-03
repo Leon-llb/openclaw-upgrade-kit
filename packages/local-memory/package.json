@@ -1,0 +1,36 @@
+{
+  "name": "openclaw-local-memory",
+  "version": "3.3.0",
+  "description": "Layered local memory system for OpenClaw with project retention, workflow gates, slash commands, user preferences, auto-reflection, archive compaction, privacy tiers, and dashboard",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx -y -p typescript@5.9.3 tsc",
+    "start": "python3 memory_service.py",
+    "typecheck": "npx -y -p typescript@5.9.3 tsc --noEmit",
+    "test:node": "npm run build && node --test tests/index.test.cjs",
+    "test:python": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "test": "npm run typecheck && npm run test:node && npm run test:python"
+  },
+  "keywords": [
+    "openclaw",
+    "memory",
+    "project-memory",
+    "preferences",
+    "archive",
+    "dashboard",
+    "agent"
+  ],
+  "author": "Leon",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leon-llb/openclaw-upgrade-kit.git"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
