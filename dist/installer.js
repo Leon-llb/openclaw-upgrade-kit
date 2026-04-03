@@ -294,6 +294,9 @@ function applyInstallToConfig(params) {
         defaults.model = clone(existingModel);
     }
     defaults.workspace = params.plans[0].workspace;
+    if (!Object.prototype.hasOwnProperty.call(defaults, 'timeoutSeconds')) {
+        defaults.timeoutSeconds = 900;
+    }
     const currentSubagents = (defaults.subagents || {});
     defaults.subagents = {
         maxConcurrent: 8,

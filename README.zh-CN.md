@@ -89,6 +89,7 @@
 - 正式插件安装记录
 - 共享技能安装
 - 黑板模板安装
+- 为长任务补齐默认超时基线（`agents.defaults.timeoutSeconds=900`）
 - 安装后校验
 - 一键回滚
 
@@ -139,6 +140,8 @@ openclaw-upgrade rollback --backup ~/.openclaw/backups/openclaw-upgrade-YYYYMMDD
 6. Patch `openclaw.json`。
 7. 重启 gateway。
 8. 校验插件健康、安装形态和技能是否到位。
+
+如果你的配置里原本没有显式设置 `agents.defaults.timeoutSeconds`，安装器现在会自动补成 `900`。这样 cron 和研究型长任务就不会再被 OpenClaw 内置的较短默认超时提前截断。
 
 ## 仓库结构
 

@@ -20,6 +20,22 @@ openclaw-upgrade rollback --backup ~/.openclaw/backups/openclaw-upgrade-YYYYMMDD
 
 Usually yes, because the kit lives in user-controlled paths and patches configuration instead of replacing the OpenClaw package itself. Still, you should run `openclaw-upgrade verify` after upgrading OpenClaw.
 
+## Why did my cron or long task stop around one minute?
+
+OpenClaw has a built-in default agent timeout if `agents.defaults.timeoutSeconds` is not explicitly set in `~/.openclaw/openclaw.json`. Starting in `0.1.1`, the installer writes `agents.defaults.timeoutSeconds=900` by default while preserving any timeout you already configured yourself.
+
+If you installed an older kit version, rerun the installer or set it manually:
+
+```json
+{
+  "agents": {
+    "defaults": {
+      "timeoutSeconds": 900
+    }
+  }
+}
+```
+
 ## Is this only about prompts?
 
 No. The main value is in the operating mechanics around the model:

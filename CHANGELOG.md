@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 - 2026-04-03
+
+### Fixed
+
+- installer now writes `agents.defaults.timeoutSeconds: 900` when the target config does not define one
+- existing explicit agent timeout settings are preserved instead of being overwritten
+- long-running cron and agent tasks no longer inherit OpenClaw's shorter built-in default timeout after installation
+
 ## 0.1.0 - 2026-04-03
 
 First public release of the OpenClaw upgrade kit.

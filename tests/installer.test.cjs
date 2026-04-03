@@ -65,7 +65,36 @@ test('applyInstallToConfig wires solo profile and plugin config', () => {
     installPaths.blackboardRoot,
   );
   assert.equal(next.agents.defaults.workspace, plans[0].workspace);
+  assert.equal(next.agents.defaults.timeoutSeconds, 900);
   assert.deepEqual(next.agents.list[0].subagents.allowAgents, []);
+});
+
+test('applyInstallToConfig preserves explicit agent timeout', () => {
+  const installPaths = __testHooks.buildInstallPaths({
+    profile: 'solo',
+    stateDir: path.join(os.tmpdir(), 'openclaw-state-existing-timeout'),
+    sourceRoot: '/tmp/source-root',
+  });
+  const plans = __testHooks.buildAgentPlans('solo', installPaths.workspaceRoot, installPaths.stateDir);
+  const next = __testHooks.applyInstallToConfig({
+    config: {
+      agents: {
+        defaults: {
+          model: {
+            primary: 'openai-codex/gpt-5.4',
+          },
+          timeoutSeconds: 1200,
+        },
+        list: [],
+      },
+    },
+    profile: 'solo',
+    plans,
+    installPaths,
+    pluginVersion: '3.3.0',
+  });
+
+  assert.equal(next.agents.defaults.timeoutSeconds, 1200);
 });
 
 test('applyInstallToConfig adds full team5 agent layout', () => {
