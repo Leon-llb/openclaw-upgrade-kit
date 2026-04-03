@@ -20,6 +20,24 @@ This repo packages the practical parts we extracted from studying Claude Code's 
 
 This is single-agent first by default. You do not need a five-agent setup to get value from it.
 
+## Who This Is For
+
+- you use OpenClaw with one agent and want better planning, memory, and verification
+- you want a safer path to multi-agent collaboration later
+- you want installation and rollback to be predictable instead of hand-editing prompts and configs
+- you want Claude Code-inspired workflow mechanics without copying a closed system verbatim
+
+## Vanilla OpenClaw vs Upgrade Kit
+
+| Area | Vanilla OpenClaw | Upgrade Kit |
+| --- | --- | --- |
+| Default operating mode | one agent + prompt + tools | workflow phases + memory + verification |
+| Memory | mostly session-local | layered long-term local memory |
+| Risk control | depends on prompt discipline | advisor and verification gates |
+| Handoffs | chat-history heavy | durable blackboard artifacts |
+| Multi-agent path | manual | progressive `solo -> duo -> team5` |
+| Installation | manual tweaking | backup, patch, verify, rollback |
+
 ## Why This Exists
 
 Most OpenClaw setups stop at "one model + one prompt + some tools".
@@ -78,6 +96,12 @@ Most users should start with `solo`.
 - it adds layered memory and workflow discipline without forcing subagents
 - you can move to `duo` or `team5` later without reinstalling from scratch
 
+## Upgrade Path
+
+1. Start with `solo` if you are currently running one main agent.
+2. Move to `duo` when you want a standing skeptical reviewer.
+3. Move to `team5` only when your workload regularly needs orchestration across research, implementation, execution, and QA.
+
 ## Quick Start
 
 ### Directly from GitHub
@@ -125,6 +149,8 @@ openclaw-upgrade rollback --backup ~/.openclaw/backups/openclaw-upgrade-YYYYMMDD
 - [`docs/architecture.md`](docs/architecture.md)
 - [`docs/profiles.md`](docs/profiles.md)
 - [`docs/install.md`](docs/install.md)
+- [`docs/faq.md`](docs/faq.md)
+- [`docs/roadmap.md`](docs/roadmap.md)
 
 ## Compatibility
 

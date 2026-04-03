@@ -20,6 +20,24 @@
 
 默认优先支持单智能体。你不需要先搭五智能体，照样能获得明显提升。
 
+## 适合谁用
+
+- 你现在就是单智能体 OpenClaw，但想补上更好的规划、记忆和验证能力
+- 你希望以后平滑升级到多智能体，而不是一次性重做整个系统
+- 你希望安装、升级、回滚都可控，而不是手工改一堆 prompt 和配置
+- 你想吸收 Claude Code 启发出来的工程机制，但不是机械照抄一套封闭系统
+
+## 和原版 OpenClaw 的差异
+
+| 维度 | 原版 OpenClaw | Upgrade Kit |
+| --- | --- | --- |
+| 默认工作形态 | 一个 agent + prompt + tools | workflow 分层 + 记忆 + 验证 |
+| 记忆 | 主要停留在会话内 | 分层长期本地记忆 |
+| 风险控制 | 靠 prompt 自觉 | advisor 与 verification gate |
+| 交接方式 | 依赖长聊天历史 | 黑板产物可持续沉淀 |
+| 多智能体演进 | 手工搭 | `solo -> duo -> team5` 渐进升级 |
+| 安装方式 | 手工改 | backup、patch、verify、rollback |
+
 ## 为什么要做这个项目
 
 很多 OpenClaw 配置只停留在：
@@ -82,6 +100,12 @@
 - 它会增加长期记忆和工作流纪律，但不会强迫你启用多智能体
 - 之后如果你要升级到 `duo` 或 `team5`，也不需要从头重装
 
+## 升级路线
+
+1. 如果你现在只有一个 `main`，先上 `solo`。
+2. 当你开始需要稳定的第二视角和挑错能力时，再升 `duo`。
+3. 只有当你的任务长期需要研究、实现、执行、QA 分工时，再升 `team5`。
+
 ## 快速开始
 
 ### 直接从 GitHub 安装
@@ -129,6 +153,8 @@ openclaw-upgrade rollback --backup ~/.openclaw/backups/openclaw-upgrade-YYYYMMDD
 - [`docs/architecture.md`](./docs/architecture.md)
 - [`docs/profiles.md`](./docs/profiles.md)
 - [`docs/install.md`](./docs/install.md)
+- [`docs/faq.md`](./docs/faq.md)
+- [`docs/roadmap.md`](./docs/roadmap.md)
 
 ## 兼容性
 
