@@ -137,7 +137,7 @@ openclaw-upgrade rollback --backup ~/.openclaw/backups/openclaw-upgrade-YYYYMMDD
 7. Restart the gateway.
 8. Verify plugin health, install shape, and skill presence.
 
-The installer also writes `agents.defaults.timeoutSeconds=900` when your config does not already set a value. This prevents long-running cron and research-heavy agent turns from getting cut off by OpenClaw's shorter built-in default.
+The installer also writes `agents.defaults.timeoutSeconds=900` when your config does not already set a value, and fills in `agents.defaults.subagents.runTimeoutSeconds=900` plus `agents.defaults.subagents.announceTimeoutMs=300000`. This keeps long-running cron and research-heavy agent turns from being cut off either by the main agent timeout or by a shorter sub-agent announce timeout.
 
 ## Repository Layout
 

@@ -141,7 +141,7 @@ openclaw-upgrade rollback --backup ~/.openclaw/backups/openclaw-upgrade-YYYYMMDD
 7. 重启 gateway。
 8. 校验插件健康、安装形态和技能是否到位。
 
-如果你的配置里原本没有显式设置 `agents.defaults.timeoutSeconds`，安装器现在会自动补成 `900`。这样 cron 和研究型长任务就不会再被 OpenClaw 内置的较短默认超时提前截断。
+如果你的配置里原本没有显式设置 `agents.defaults.timeoutSeconds`，安装器现在会自动补成 `900`，同时补齐 `agents.defaults.subagents.runTimeoutSeconds=900` 和 `agents.defaults.subagents.announceTimeoutMs=300000`。这样 cron 和研究型长任务既不会被主运行超时提前截断，也不会在 sub-agent 回传结果时因为 announce 超时过短而提前失败。
 
 ## 仓库结构
 

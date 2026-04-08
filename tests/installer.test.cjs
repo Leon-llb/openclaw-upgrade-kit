@@ -66,6 +66,8 @@ test('applyInstallToConfig wires solo profile and plugin config', () => {
   );
   assert.equal(next.agents.defaults.workspace, plans[0].workspace);
   assert.equal(next.agents.defaults.timeoutSeconds, 900);
+  assert.equal(next.agents.defaults.subagents.announceTimeoutMs, 300000);
+  assert.equal(next.agents.defaults.subagents.runTimeoutSeconds, 900);
   assert.deepEqual(next.agents.list[0].subagents.allowAgents, []);
 });
 
@@ -95,6 +97,8 @@ test('applyInstallToConfig preserves explicit agent timeout', () => {
   });
 
   assert.equal(next.agents.defaults.timeoutSeconds, 1200);
+  assert.equal(next.agents.defaults.subagents.announceTimeoutMs, 300000);
+  assert.equal(next.agents.defaults.subagents.runTimeoutSeconds, 900);
 });
 
 test('applyInstallToConfig adds full team5 agent layout', () => {

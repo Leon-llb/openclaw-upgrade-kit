@@ -302,6 +302,7 @@ function applyInstallToConfig(params) {
         maxConcurrent: 8,
         maxSpawnDepth: params.profile === 'solo' ? 1 : 2,
         maxChildrenPerAgent: params.profile === 'solo' ? 1 : 4,
+        announceTimeoutMs: 300000,
         runTimeoutSeconds: 900,
         ...currentSubagents,
     };

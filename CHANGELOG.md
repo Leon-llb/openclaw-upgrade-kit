@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.2 - 2026-04-08
+
+### Fixed
+
+- installer now writes `agents.defaults.subagents.announceTimeoutMs: 300000` alongside the existing 900 second runtime timeout defaults
+- long-running cron jobs no longer fail early when sub-agents finish work but cannot announce completion within OpenClaw's shorter built-in default
+- installer coverage now asserts both `runTimeoutSeconds` and `announceTimeoutMs`, reducing the chance of future timeout regressions
+
+### Notes
+
+- this patch closes the gap left by `0.1.1`, which only covered the main agent timeout baseline
+- no profile layout changes
+- no local-memory API timeout changes
+
 ## 0.1.1 - 2026-04-03
 
 ### Fixed

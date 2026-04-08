@@ -22,7 +22,7 @@ Usually yes, because the kit lives in user-controlled paths and patches configur
 
 ## Why did my cron or long task stop around one minute?
 
-OpenClaw has a built-in default agent timeout if `agents.defaults.timeoutSeconds` is not explicitly set in `~/.openclaw/openclaw.json`. Starting in `0.1.1`, the installer writes `agents.defaults.timeoutSeconds=900` by default while preserving any timeout you already configured yourself.
+OpenClaw has a built-in default agent timeout if `agents.defaults.timeoutSeconds` is not explicitly set in `~/.openclaw/openclaw.json`. Starting in `0.1.1`, the installer writes `agents.defaults.timeoutSeconds=900` by default while preserving any timeout you already configured yourself. It also fills in `agents.defaults.subagents.runTimeoutSeconds=900` and `agents.defaults.subagents.announceTimeoutMs=300000` so long-running cron flows do not fail early while sub-agents announce completion.
 
 If you installed an older kit version, rerun the installer or set it manually:
 
@@ -30,7 +30,11 @@ If you installed an older kit version, rerun the installer or set it manually:
 {
   "agents": {
     "defaults": {
-      "timeoutSeconds": 900
+      "timeoutSeconds": 900,
+      "subagents": {
+        "runTimeoutSeconds": 900,
+        "announceTimeoutMs": 300000
+      }
     }
   }
 }
