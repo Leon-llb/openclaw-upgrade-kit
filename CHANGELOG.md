@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.3 - 2026-04-08
+
+### Changed
+
+- main workspace templates now use `IDENTITY.md`, `USER.md`, `SOUL.md`, and `TOOLS.md` as the durable context layout
+- `solo`, `duo`, and `team5` main templates no longer generate a standalone `MEMORY.md`
+- README now documents `memory/YYYY-MM-DD.md` as optional short-lived notes instead of a required primary memory file
+
+### Fixed
+
+- new installations no longer ship a template layout that can mislead agents into reporting a missing `MEMORY.md`
+- installer coverage now guards the main workspace template structure against regressions
+
 ## 0.1.2 - 2026-04-08
 
 ### Fixed

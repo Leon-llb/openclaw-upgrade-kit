@@ -1,5 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
@@ -130,4 +131,26 @@ test('applyInstallToConfig adds full team5 agent layout', () => {
   assert.deepEqual(main.subagents.allowAgents, ['general', 'strategist', 'premier', 'warmaster']);
   assert.deepEqual(general.subagents.allowAgents, ['general', 'strategist', 'premier', 'warmaster']);
   assert.equal(next.plugins.installs['local-memory'].version, '3.3.0');
+});
+
+test('main workspace templates use split durable context files instead of MEMORY.md', () => {
+  const repoRoot = path.resolve(__dirname, '..');
+  const profiles = ['solo', 'duo', 'team5'];
+
+  for (const profile of profiles) {
+    const mainDir = path.join(repoRoot, 'templates', 'agents', profile, 'main');
+    const agentsPath = path.join(mainDir, 'AGENTS.md');
+    const soulPath = path.join(mainDir, 'SOUL.md');
+
+    assert.equal(fs.existsSync(path.join(mainDir, 'IDENTITY.md')), true);
+    assert.equal(fs.existsSync(path.join(mainDir, 'USER.md')), true);
+    assert.equal(fs.existsSync(path.join(mainDir, 'MEMORY.md')), false);
+
+    const agents = fs.readFileSync(agentsPath, 'utf8');
+    const soul = fs.readFileSync(soulPath, 'utf8');
+
+    assert.match(agents, /Do not assume a separate `MEMORY\.md` exists/);
+    assert.match(agents, /memory\/YYYY-MM-DD\.md/);
+    assert.match(soul, /do not create or expect a separate `MEMORY\.md`/i);
+  }
 });

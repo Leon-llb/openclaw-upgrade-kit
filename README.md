@@ -78,7 +78,20 @@ Features:
 - `team5`
   `main / general / strategist / premier / warmaster`. Full orchestrated coding team.
 
-### 3. Safer installation
+### 3. Cleaner workspace memory layout
+
+Main workspaces now keep durable context in:
+
+- `IDENTITY.md`
+- `USER.md`
+- `SOUL.md`
+- `TOOLS.md`
+
+Optional short-lived notes go in `memory/YYYY-MM-DD.md` only when needed.
+
+There is no standalone `MEMORY.md` in the main workspace templates anymore. This avoids duplicated memory files and makes the durable context layout explicit.
+
+### 4. Safer installation
 
 - automatic backup
 - generated workspaces under `~/.openclaw/openclaw-upgrade/`

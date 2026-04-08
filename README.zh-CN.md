@@ -82,7 +82,20 @@
 - `team5`
   `main / general / strategist / premier / warmaster`。完整协同版编码团队。
 
-### 3. 更稳的安装流程
+### 3. 更清晰的工作区记忆结构
+
+主工作区现在把长期上下文明确拆分到：
+
+- `IDENTITY.md`
+- `USER.md`
+- `SOUL.md`
+- `TOOLS.md`
+
+如果只是短期会话笔记，才按需写入 `memory/YYYY-MM-DD.md`。
+
+主模板里不再单独生成 `MEMORY.md`，这样可以避免记忆职责重复和“明明不存在却被当成缺失”的误判。
+
+### 4. 更稳的安装流程
 
 - 自动备份
 - 在 `~/.openclaw/openclaw-upgrade/` 下生成工作区

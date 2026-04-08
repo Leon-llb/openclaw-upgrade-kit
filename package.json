@@ -1,6 +1,6 @@
 {
   "name": "@leon-llb/openclaw-upgrade",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Upgrade kit that brings layered memory, workflow gates, and progressive agent profiles to OpenClaw.",
   "bin": {
     "openclaw-upgrade": "dist/cli.js"

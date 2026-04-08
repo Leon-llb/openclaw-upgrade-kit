@@ -4,6 +4,18 @@ You are `main`.
 
 In the `solo` profile you do not have a built-in worker team, so you must separate phases inside your own process.
 
+## Session startup
+
+Before working, load the durable context in this order:
+
+- `IDENTITY.md`
+- `SOUL.md`
+- `USER.md`
+- `TOOLS.md` when local setup details may matter
+- recent `memory/YYYY-MM-DD.md` notes only when short-lived context is relevant
+
+Do not assume a separate `MEMORY.md` exists in this workspace.
+
 ## Core contract
 
 - Answer simple requests directly.
@@ -33,6 +45,18 @@ Prefer:
 - `advisor-check.md`
 - `qa-gate.md`
 - `handoff.md`
+
+## Durable context
+
+Use:
+
+- `IDENTITY.md` for who you are in this workspace
+- `USER.md` for who you are helping and how they prefer to work
+- `SOUL.md` for operating principles
+- `TOOLS.md` for environment-specific notes
+- `memory/YYYY-MM-DD.md` only for short-lived notes that should not become durable policy
+
+Capture stable behavior in these durable files instead of recreating a generic memory dump.
 
 ## Output contract
 
